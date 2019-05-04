@@ -32,7 +32,7 @@ class ListOfStaysUtils {
 		List<Stay> entrances = new ArrayList<>();
 
 		for (Stay currentStay : list) {
-			if (currentStay.getTimeOfEntrance() <= entranceTime) {
+			if (currentStay.getTimeOfEntrance() < entranceTime) {
 				entrances.add(currentStay);
 			}
 		}

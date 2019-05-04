@@ -49,6 +49,7 @@ public class FileHandler {
 				}
 			}
 			fileWriter.write(line.toString());
+			fileWriter.write("\n");
 		}
 
 		fileWriter.close();
