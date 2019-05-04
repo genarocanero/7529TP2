@@ -1,0 +1,4 @@
+nombre persona,1,10.
+nombre persona,1,6.
+nombre persona,1,7.
+nombre persona,1,15.
