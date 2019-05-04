@@ -1,4 +1,4 @@
-package com.robbery.file.utils;
+package com.robbery;
 
 import java.io.FileWriter;
 import java.io.IOException;

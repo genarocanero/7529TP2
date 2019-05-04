@@ -1,4 +1,4 @@
-package com.robbery.file.utils;
+package com.robbery;
 
 public class Stay {
 

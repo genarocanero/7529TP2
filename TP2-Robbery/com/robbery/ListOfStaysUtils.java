@@ -1,4 +1,4 @@
-package com.robbery.file.utils;
+package com.robbery;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -20,7 +20,7 @@ class ListOfStaysUtils {
 		List<Stay> exits = new ArrayList<>();
 
 		for (Stay currentStay : list) {
-			if (currentStay.getExitTime() > exitTime) {
+			if (currentStay.getExitTime() >= exitTime) {
 				exits.add(currentStay);
 			}
 		}
@@ -32,7 +32,7 @@ class ListOfStaysUtils {
 		List<Stay> entrances = new ArrayList<>();
 
 		for (Stay currentStay : list) {
-			if (currentStay.getTimeOfEntrance() < entranceTime) {
+			if (currentStay.getTimeOfEntrance() <= entranceTime) {
 				entrances.add(currentStay);
 			}
 		}

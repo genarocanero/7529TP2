@@ -1,6 +1,6 @@
-import com.robbery.file.utils.Detective;
-import com.robbery.file.utils.FileHandler;
-import com.robbery.file.utils.Stay;
+import com.robbery.Detective;
+import com.robbery.FileHandler;
+import com.robbery.Stay;
 import java.io.IOException;
 import java.util.List;
 

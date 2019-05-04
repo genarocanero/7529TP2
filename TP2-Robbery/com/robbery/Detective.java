@@ -1,4 +1,4 @@
-package com.robbery.file.utils;
+package com.robbery;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,19 +22,23 @@ public class Detective {
 		for (Stay currentStay : exitsAfterMinTime) {
 			List<Stay> sublistOfExitsAfterCurrent = ListOfStaysUtils
 					.findExitsAfter(exitsAfterMinTime, currentStay.getExitTime());
-			List<Stay> listOfSuspectStays = ListOfStaysUtils.findEntrancesBefore(
-					sublistOfExitsAfterCurrent, currentStay.getExitTime());
-			listOfSuspectStays.add(currentStay);
-			listOfSuspectStays = ListOfStaysUtils.sortByEntranceTime(listOfSuspectStays);
+
+			List<Stay> listOfSuspectStays = ListOfStaysUtils
+					.findEntrancesBefore(sublistOfExitsAfterCurrent, currentStay.getExitTime());
+
+			ListOfStaysUtils.sortByEntranceTime(listOfSuspectStays);
 
 			if ((listOfSuspectStays.size() <= MAX_SUSPECTS && listOfSuspectStays.size() >= MIN_SUSPECTS) &&
 					(currentStay.getExitTime() - listOfSuspectStays.get(0).getTimeOfEntrance()) <= MAX_EXIT_TIME &&
-					(currentStay.getExitTime() - listOfSuspectStays.get(0).getTimeOfEntrance()) >= MIN_EXIT_TIME){
-				List<Stay> otherRegistries = ListOfStaysUtils.sortByExitTime(
-						ListOfStaysUtils.findOtherRegistries(listOfSuspectStays, listOfRegistries));
+					(currentStay.getExitTime() - listOfSuspectStays.get(0).getTimeOfEntrance()) >= MIN_EXIT_TIME) {
+
+				List<Stay> otherRegistries = ListOfStaysUtils
+						.sortByExitTime(ListOfStaysUtils.findOtherRegistries(listOfSuspectStays, listOfRegistries));
+
 				if (otherRegistries.isEmpty() ||
-						otherRegistries.get(otherRegistries.size()-1).getExitTime()
-								< listOfSuspectStays.get(listOfSuspectStays.size()-1).getTimeOfEntrance()){
+						otherRegistries.get(otherRegistries.size() - 1).getExitTime()
+								< listOfSuspectStays.get(listOfSuspectStays.size() - 1).getTimeOfEntrance()){
+
 					listOfSuspectGroups.add(listOfSuspectStays);
 				}
 			}
