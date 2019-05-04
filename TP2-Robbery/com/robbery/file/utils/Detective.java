@@ -5,10 +5,10 @@ import java.util.List;
 
 public class Detective {
 
-	private static int MIN_EXIT_TIME = 40;
-	private static int MAX_EXIT_TIME = 120;
-	private static int MAX_SUSPECTS = 10;
-	private static int MIN_SUSPECTS = 5;
+	private static final int MIN_EXIT_TIME = 40;
+	private static final int MAX_EXIT_TIME = 120;
+	private static final int MAX_SUSPECTS = 10;
+	private static final int MIN_SUSPECTS = 5;
 
 	public static List<List<Stay>> discoverSuspectGroups(List<Stay> listOfRegistries) {
 
@@ -27,9 +27,9 @@ public class Detective {
 			listOfSuspectStays.add(currentStay);
 			listOfSuspectStays = ListOfStaysUtils.sortByEntranceTime(listOfSuspectStays);
 
-			if ((listOfSuspectStays.size() <= MAX_SUSPECTS && listOfSuspectStays.size() > MIN_SUSPECTS) &&
-					(currentStay.getExitTime() - listOfSuspectStays.get(0).getTimeOfEntrance()) < MAX_EXIT_TIME &&
-					(currentStay.getExitTime() - listOfSuspectStays.get(0).getTimeOfEntrance()) > MIN_EXIT_TIME){
+			if ((listOfSuspectStays.size() <= MAX_SUSPECTS && listOfSuspectStays.size() >= MIN_SUSPECTS) &&
+					(currentStay.getExitTime() - listOfSuspectStays.get(0).getTimeOfEntrance()) <= MAX_EXIT_TIME &&
+					(currentStay.getExitTime() - listOfSuspectStays.get(0).getTimeOfEntrance()) >= MIN_EXIT_TIME){
 				List<Stay> otherRegistries = ListOfStaysUtils.sortByExitTime(
 						ListOfStaysUtils.findOtherRegistries(listOfSuspectStays, listOfRegistries));
 				if (otherRegistries.isEmpty() ||

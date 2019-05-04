@@ -1,4 +1,7 @@
-nombre persona,1,10.
-nombre persona,1,6.
-nombre persona,1,7.
-nombre persona,1,15.
+A,0,41.
+B,1,42.
+C,2,43.
+D,3,44.
+E,4,45.
+F,44,10.
+G,47,10.
