@@ -1,6 +1,7 @@
 package aplicacion;
 
 import laberinto.DFSMaze;
+import generador.GeneradorDC;
 
 public class MazeGenerator {
 
@@ -19,6 +20,20 @@ public class MazeGenerator {
 			
 			
 		}
+		else if(modalidad.equals("dc")) {
+			
+			GeneradorDC laberinto = new GeneradorDC();
+			laberinto.generar(filas, columnas);
+			
+			laberinto.guardarEnArchivo("mapas-laberinto.txt");
+			
+			
+		}
+		else{
+			//echo forma de uso
+			//ej: llmar a 
+		}
+			
 
 		
 	}
