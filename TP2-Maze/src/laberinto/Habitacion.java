@@ -2,6 +2,7 @@ package laberinto;
 
 import java.util.ArrayList;
 
+import excepciones.ExcepcionSentido;
 import ubicacion.Adyacencias;
 import ubicacion.Coordenada;
 import movimientos.Sentido;
@@ -39,7 +40,14 @@ public class Habitacion {
 
 	public void abrirPuertaHacia(Coordenada adyacente) {
 		
-		this.puertas.abrirPuerta(ubicacion, adyacente);
+		try {
+			
+			this.puertas.abrirPuerta(ubicacion, adyacente);
+		
+		} catch (ExcepcionSentido e) {
+			
+			System.out.println(e.getMessage());
+		}
 	}
 
 	public boolean estaAbiertaLaPuertaHaciaLa(Sentido sentido) {

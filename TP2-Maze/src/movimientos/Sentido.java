@@ -1,5 +1,6 @@
 package movimientos;
 
+import excepciones.ExcepcionSentido;
 import laberinto.Portero;
 import ubicacion.Coordenada;
 
@@ -14,9 +15,9 @@ public abstract class Sentido {
 	
 	public abstract Coordenada moverse(Coordenada coordenada);
 	
-	public static Sentido sentidoDesdeHasta(Coordenada inicio, Coordenada fin) {
+	public static Sentido sentidoDesdeHasta(Coordenada inicio, Coordenada fin) throws ExcepcionSentido {
 		
-		Sentido sentido = null;
+		Sentido sentido;
 	
 		if(ARRIBA.fueElMovimiento(inicio, fin)) sentido = ARRIBA;
 		
@@ -26,6 +27,7 @@ public abstract class Sentido {
 		
 		else if (DERECHA.fueElMovimiento(inicio, fin)) sentido = DERECHA;
 		
+		else throw (new ExcepcionSentido("Sentido del movimiento desconocido"));
 		
 		return sentido;
 	}
