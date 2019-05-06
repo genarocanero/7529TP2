@@ -26,26 +26,30 @@ public class Detective {
 			List<Stay> listOfSuspectStays = ListOfStaysUtils
 					.findEntrancesBefore(sublistOfExitsAfterCurrent, currentStay.getExitTime());
 
-			ListOfStaysUtils.sortByEntranceTime(listOfSuspectStays);
+			if ((listOfSuspectStays.size() <= MAX_SUSPECTS
+					&& listOfSuspectStays.size() >= MIN_SUSPECTS)) {
 
-			if ((listOfSuspectStays.size() <= MAX_SUSPECTS && listOfSuspectStays.size() >= MIN_SUSPECTS) &&
-					(currentStay.getExitTime() - listOfSuspectStays.get(0).getTimeOfEntrance()) <= MAX_EXIT_TIME &&
+				ListOfStaysUtils.sortByEntranceTime(listOfSuspectStays);
+				if ((currentStay.getExitTime() - listOfSuspectStays.get(0).getTimeOfEntrance()) <= MAX_EXIT_TIME &&
 					(currentStay.getExitTime() - listOfSuspectStays.get(0).getTimeOfEntrance()) >= MIN_EXIT_TIME) {
 
-				List<Stay> otherRegistries = ListOfStaysUtils
-						.sortByExitTime(ListOfStaysUtils.findOtherRegistries(listOfSuspectStays, listOfRegistries));
+					List<Stay> otherRegistries = ListOfStaysUtils
+							.sortByExitTime(ListOfStaysUtils
+									.findOtherRegistries(listOfSuspectStays, listOfRegistries));
 
-				if (otherRegistries.isEmpty() ||
-						otherRegistries.get(otherRegistries.size() - 1).getExitTime()
-								< listOfSuspectStays.get(listOfSuspectStays.size() - 1).getTimeOfEntrance()){
+					if (otherRegistries.isEmpty() ||
+							otherRegistries.get(otherRegistries.size() - 1).getExitTime()
+									< listOfSuspectStays.get(listOfSuspectStays.size() - 1)
+									.getTimeOfEntrance()) {
 
-					listOfSuspectGroups.add(listOfSuspectStays);
+						listOfSuspectGroups.add(listOfSuspectStays);
+					}
 				}
 			}
 		}
 
 		return listOfSuspectGroups;
-	}
 
+	}
 
 }
