@@ -1,6 +1,7 @@
 package laberinto;
 
 import ubicacion.Coordenada;
+import excepciones.ExcepcionSentido;
 import movimientos.Abajo;
 import movimientos.Arriba;
 import movimientos.Derecha;
@@ -62,7 +63,7 @@ public class Portero {
 		return (this.puertas[DERECHA]);
 	}
 
-	public void abrirPuerta(Coordenada origen, Coordenada destino) {
+	public void abrirPuerta(Coordenada origen, Coordenada destino) throws ExcepcionSentido {
 		
 		Sentido sentido = Sentido.sentidoDesdeHasta(origen, destino);
 		
