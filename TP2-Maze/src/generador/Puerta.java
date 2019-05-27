@@ -16,7 +16,7 @@ public class Puerta {
 	}
 	
 	//esta funcion devuelve un identificador numerico unico para cada puerta sin importar el tamaño del laverinto
-	static int getID(int alto, int ancho, int x1, int y1, int x2, int y2){
+	public static int getID(int alto, int ancho, int x1, int y1, int x2, int y2){
 		int xOrigen;
 		int xDestino;
 		int yOrigen;

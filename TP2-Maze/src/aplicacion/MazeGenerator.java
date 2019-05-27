@@ -20,7 +20,7 @@ public class MazeGenerator {
 			
 			
 		}
-		else if(modalidad.equals("dc")) {
+		else if(modalidad.equals("dyc")) {
 			
 			GeneradorDC laberinto = new GeneradorDC();
 			laberinto.generar(filas, columnas);
